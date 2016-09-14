@@ -1,7 +1,9 @@
+*.py[cod]
+run_tweetcollector.sh
 *.txt
 *.json
 *.csv
-/venv
-/.idea
-/__pycache__
+venv/
+.idea/
+__pycache__/
 *~
