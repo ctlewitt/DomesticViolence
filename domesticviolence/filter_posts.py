@@ -88,11 +88,13 @@ def sequence_of_filters_applied():
     filter_out_by_func("domesticviolence/hashtag_tweets/WISWIL_filtered_twitter.txt",
                        "domesticviolence/hashtag_tweets/WISWIL_filtered_noRTs.txt",
                        "domesticviolence/hashtag_tweets/WISWIL_filtered_hasRTs.txt",
-                       "domesticviolence/hashtag_authors/WISWIL_twitter_users_noRTs.txt", post_is_retweet)
-
-
-filter_out_by_func("domesticviolence/hashtag_tweets/WISWIL_filtered_twitter.txt", "domesticviolence/hashtag_tweets/WISWIL_filtered_noRTs.txt",
-                   "domesticviolence/hashtag_tweets/WISWIL_filtered_hasRTs.txt", "domesticviolence/hashtag_authors/WISWIL_twitter_users_noRTs.txt", post_is_retweet)
+                       "domesticviolence/hashtag_authors/WISWIL_twitter_users_noRTs.txt",
+                       post_is_retweet)
+    filter_out_by_func("domesticviolence/hashtag_tweets/WISWIL_filtered_noRTs.txt",
+                       "domesticviolence/hashtag_tweets/WISWIL_filtered_nolinks.txt",
+                       "domesticviolence/hashtag_tweets/WISWIL_filtered_haslinks.txt",
+                       "domesticviolence/hashtag_authors/WISWIL_twitter_users_nolinks.txt",
+                       post_contains_link)
 
 
 
