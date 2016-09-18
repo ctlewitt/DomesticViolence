@@ -69,8 +69,8 @@ def print_sample(filename, part=None):
 def samples_done():
     print_sample("WISWIL_filtered_twitter.txt", "MEDIA_PROVIDER")
     print_sample("WISWIL_filtered_twitter_not.txt", "MEDIA_PROVIDER")
+    print_sample("WISWIL_filtered_hasRTs.txt", "CONTENT")
+    print_sample("WISWIL_filtered_noRTs.txt", "CONTENT")
 
 
-#print_sample("domesticviolence/hashtag_tweets/WISWIL_filtered_hasRTs.txt", "CONTENT")
-print_sample("domesticviolence/hashtag_tweets/WISWIL_filtered_noRTs.txt", "CONTENT")
 
