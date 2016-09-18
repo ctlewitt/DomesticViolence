@@ -47,6 +47,7 @@ def print_sample(filename, part=None):
                                  "FOLLOWING", "FOLLOWERS", "UPDATES", "BLOG_POST_SENTIMENT", "ARTICLE_ID"]
         for line in read_file:
             line_num += 1
+    print("Total lines in file: {}".format(line_num))
     with open(filename, "r") as read_file:
         frequency = line_num//100
         line_num = 0
@@ -60,8 +61,9 @@ def print_sample(filename, part=None):
                     print("{}: {}".format(part, tweet_parts[tweet_part_idx]))
                 else:
                     for tweet_part_idx in tweet_part_idxes:
-                        print(words_for_tweet_parts[tweet_part_idx], ": ", tweet_parts[tweet_part_idx])
+                        print("{}: {}".format(words_for_tweet_parts[tweet_part_idx], tweet_parts[tweet_part_idx]))
                 line_num = 0
                 print(line)
 
+#print_sample("WISWIL_filtered_twitter.txt", "MEDIA_PROVIDER")
 print_sample("WISWIL_filtered_twitter_not.txt", "MEDIA_PROVIDER")
