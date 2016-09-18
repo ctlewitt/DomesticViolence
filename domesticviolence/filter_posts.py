@@ -97,6 +97,11 @@ def sequence_of_filters_applied():
                        post_contains_link)
 
 
+    filter_out_by_func("domesticviolence/hashtag_tweets/WISWIL_filtered_nolinks.txt",
+                       "domesticviolence/hashtag_tweets/WISWIL_filtered_nocommentary.txt",
+                       "domesticviolence/hashtag_tweets/WISWIL_filtered_hascommentary.txt",
+                       "domesticviolence/hashtag_authors/WISWIL_twitter_users_nocommentary.txt",
+                       post_contains_commentary)
 
 
 # def unused_conglomerate_filter():
