@@ -74,3 +74,6 @@ def samples_done():
     print_sample("WISWIL_filtered_haslinks.txt", "CONTENT")
     print_sample("WISWIL_filtered_nolinks.txt", "CONTENT")
 
+print_sample("WISWIL_filtered_hascommentary.txt", "CONTENT")
+
+#print_sample("domesticviolence/hashtag_tweets/WISWIL_filtered_nocommentary.txt", "CONTENT")
