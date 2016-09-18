@@ -51,7 +51,7 @@ def post_is_retweet(tweet_parts):
 # returns True if post contains commentary language
 # (e.g., "hashtag, read, important, trending, sparked, article, stream")
 def post_contains_commentary(tweet_parts):
-    regex = re.compile(r'hashtag|read|important|trending|sparked|article|stream')
+    regex = re.compile(r"hashtag|thread|infographic|read|powerful tweets|check out|enlightening|everyone needs to see|real people|thanks for sharing|stories being shared|must see|justice system|god bless|abc news|important|insightful|open up|real issues|trending|sparked|article|stream|movement")
     if regex.search(tweet_parts[CONTENT].lower()) is not None:
         return True
     return False
