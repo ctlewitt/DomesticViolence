@@ -71,6 +71,6 @@ def samples_done():
     print_sample("WISWIL_filtered_twitter_not.txt", "MEDIA_PROVIDER")
     print_sample("WISWIL_filtered_hasRTs.txt", "CONTENT")
     print_sample("WISWIL_filtered_noRTs.txt", "CONTENT")
-
-
+    print_sample("WISWIL_filtered_haslinks.txt", "CONTENT")
+    print_sample("WISWIL_filtered_nolinks.txt", "CONTENT")
 
