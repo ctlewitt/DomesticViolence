@@ -51,12 +51,23 @@ def post_is_retweet(tweet_parts):
 # returns True if post contains commentary language
 # (e.g., "hashtag, read, important, trending, sparked, article, stream")
 def post_contains_commentary(tweet_parts):
-    regex1 = re.compile(r"hashtag|thread|infographic|\bread\b|powerful tweets|check out|enlightening|everyone needs to see|real people|thanks for sharing|stories being shared|must see|justice system|god bless|abc news")
+    regex1 = re.compile(r"hashtag|thread|infographic|\bread\b|powerful tweets|check out|enlightening|everyone needs to see"
+                        r"|real people|thanks for sharing|stories being shared|must see|justice system|god bless|abc news")
     regex2 = re.compile(r"important|insightful|reading|\breads\b|open up|real issues|trending|sparked|article|stream|movement")
     if regex1.search(tweet_parts[CONTENT].lower()) is not None or regex2.search(tweet_parts[CONTENT].lower()) is not None:
         return True
     return False
 
+
+def post_contains_commentary2(tweet_parts):
+    regex1 = re.compile(r"pizza|bacon|article|have you heard|campaign|political|twitter|heartbreaking|heartbreak|why they stay|congress|broadening views")
+    regex2 = re.compile(r"discussion on|catching up with|@huffingtonpost|ray rice|posting|social media|series|now taking your questions|r u serious")
+    regex3 = re.compile(r"eye opening|recommend|checking out|still don't get it|corageous|take a look at|article|dialogue|reporter|my feed\b|news feed\b")
+    if (regex1.search(tweet_parts[CONTENT].lower()) is not None
+        or regex2.search(tweet_parts[CONTENT].lower()) is not None
+        or regex3.search(tweet_parts[CONTENT].lower()) is not None):
+        return True
+    return False
 
 
 def post_contains_link(tweet_parts):

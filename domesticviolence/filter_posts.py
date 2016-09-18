@@ -1,7 +1,7 @@
 import json
 import re
-from domesticviolence.util import (get_tweet_parts, relevant_tweet, post_contains_commentary, post_contains_link, post_is_retweet,
-                  post_is_tweet, AUTHOR, CONTENT, MEDIA_PROVIDER)
+from domesticviolence.util import (get_tweet_parts, relevant_tweet, post_contains_commentary, post_contains_commentary2,
+                                   post_contains_link, post_is_retweet, post_is_tweet, AUTHOR, CONTENT, MEDIA_PROVIDER)
 
 
 DEBUG = False
@@ -95,13 +95,17 @@ def sequence_of_filters_applied():
                        "domesticviolence/hashtag_tweets/WISWIL_filtered_haslinks.txt",
                        "domesticviolence/hashtag_authors/WISWIL_twitter_users_nolinks.txt",
                        post_contains_link)
-
-
     filter_out_by_func("domesticviolence/hashtag_tweets/WISWIL_filtered_nolinks.txt",
                        "domesticviolence/hashtag_tweets/WISWIL_filtered_nocommentary.txt",
                        "domesticviolence/hashtag_tweets/WISWIL_filtered_hascommentary.txt",
                        "domesticviolence/hashtag_authors/WISWIL_twitter_users_nocommentary.txt",
                        post_contains_commentary)
+
+filter_out_by_func("domesticviolence/hashtag_tweets/WISWIL_filtered_nocommentary.txt",
+                   "domesticviolence/hashtag_tweets/WISWIL_filtered_nocommentary2.txt",
+                   "domesticviolence/hashtag_tweets/WISWIL_filtered_hascommentary2.txt",
+                   "domesticviolence/hashtag_authors/WISWIL_twitter_users_nocommentary2.txt",
+                   post_contains_commentary2)
 
 
 # def unused_conglomerate_filter():
