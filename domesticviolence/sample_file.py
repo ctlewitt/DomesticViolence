@@ -65,5 +65,12 @@ def print_sample(filename, part=None):
                 line_num = 0
                 print(line)
 
-#print_sample("WISWIL_filtered_twitter.txt", "MEDIA_PROVIDER")
-print_sample("WISWIL_filtered_twitter_not.txt", "MEDIA_PROVIDER")
+# function representing the calls made to print_sample to check contents of filtered files
+def samples_done():
+    print_sample("WISWIL_filtered_twitter.txt", "MEDIA_PROVIDER")
+    print_sample("WISWIL_filtered_twitter_not.txt", "MEDIA_PROVIDER")
+
+
+#print_sample("domesticviolence/hashtag_tweets/WISWIL_filtered_hasRTs.txt", "CONTENT")
+print_sample("domesticviolence/hashtag_tweets/WISWIL_filtered_noRTs.txt", "CONTENT")
+
