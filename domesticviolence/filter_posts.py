@@ -1,7 +1,8 @@
 import json
 import re
 from domesticviolence.util import (get_tweet_parts, relevant_tweet, post_contains_commentary, post_contains_commentary2,
-                                   post_contains_link, post_is_retweet, post_is_tweet, AUTHOR, CONTENT, MEDIA_PROVIDER)
+                                   post_contains_link, post_is_retweet, post_is_tweet, AUTHOR, CONTENT, MEDIA_PROVIDER,
+                                   post_contains_commentary3)
 
 
 DEBUG = False
@@ -83,6 +84,23 @@ def filter_tweet_vs_post():
     # print results
     print("total lines: {}\nfiltered lines: {} \nunfiltered lines: {} \nfiltered authors: {}".format(total_lines, filter_lines, non_filter_lines, num_relevant_authors))
 
+
+import re
+
+def test_filter(file_name, filter_phrase):
+    regex = re.compile(filter_phrase)
+    with open(file_name, "r") as read_file:
+        for line in read_file:
+            tweet_parts = get_tweet_parts(line)
+            result = regex.search(tweet_parts[CONTENT].lower())
+            if result is not None:
+                tweet_parts = get_tweet_parts(line)
+                print("{}: {}".format("CONTENT", tweet_parts[CONTENT]))
+                print(line)
+
+
+
+
 def sequence_of_filters_applied():
     filter_tweet_vs_post() #splits into "hashtag_tweets/WISWIL_filtered_twitter_not.txt" and "hashtag_tweets/WISWIL_filtered_twitter.txt"
     filter_out_by_func("domesticviolence/hashtag_tweets/WISWIL_filtered_twitter.txt",
@@ -100,12 +118,22 @@ def sequence_of_filters_applied():
                        "domesticviolence/hashtag_tweets/WISWIL_filtered_hascommentary.txt",
                        "domesticviolence/hashtag_authors/WISWIL_twitter_users_nocommentary.txt",
                        post_contains_commentary)
+    filter_out_by_func("domesticviolence/hashtag_tweets/WISWIL_filtered_nocommentary.txt",
+                       "domesticviolence/hashtag_tweets/WISWIL_filtered_nocommentary2.txt",
+                       "domesticviolence/hashtag_tweets/WISWIL_filtered_hascommentary2.txt",
+                       "domesticviolence/hashtag_authors/WISWIL_twitter_users_nocommentary2.txt",
+                       post_contains_commentary2)
 
-filter_out_by_func("domesticviolence/hashtag_tweets/WISWIL_filtered_nocommentary.txt",
-                   "domesticviolence/hashtag_tweets/WISWIL_filtered_nocommentary2.txt",
-                   "domesticviolence/hashtag_tweets/WISWIL_filtered_hascommentary2.txt",
-                   "domesticviolence/hashtag_authors/WISWIL_twitter_users_nocommentary2.txt",
-                   post_contains_commentary2)
+#
+# filter_out_by_func("domesticviolence/hashtag_tweets/WISWIL_filtered_nocommentary2.txt",
+#                    "domesticviolence/hashtag_tweets/WISWIL_filtered_nocommentary3.txt",
+#                    "domesticviolence/hashtag_tweets/WISWIL_filtered_hascommentary3.txt",
+#                    "domesticviolence/hashtag_authors/WISWIL_twitter_users_nocommentary3.txt",
+#                    post_contains_commentary3)
+
+
+
+test_filter("domesticviolence/hashtag_tweets/WISWIL_filtered_hascommentary3.txt", "powerful")
 
 
 # def unused_conglomerate_filter():

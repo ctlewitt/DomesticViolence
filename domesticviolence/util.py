@@ -60,14 +60,26 @@ def post_contains_commentary(tweet_parts):
 
 
 def post_contains_commentary2(tweet_parts):
-    regex1 = re.compile(r"pizza|bacon|article|have you heard|campaign|political|twitter|heartbreaking|heartbreak|why they stay|congress|broadening views")
-    regex2 = re.compile(r"discussion on|catching up with|@huffingtonpost|ray rice|posting|social media|series|now taking your questions|r u serious")
+    regex1 = re.compile(r"pizza|social media|bacon|series|article|have you heard|twitter|heartbreaking|heartbreak|why they stay|congress|broadening views")
+    regex2 = re.compile(r"discussion on|political|campaign|catching up with|@huffingtonpost|ray rice|posting|now taking your questions|r u serious")
     regex3 = re.compile(r"eye opening|recommend|checking out|still don't get it|corageous|take a look at|article|dialogue|reporter|my feed\b|news feed\b")
     if (regex1.search(tweet_parts[CONTENT].lower()) is not None
         or regex2.search(tweet_parts[CONTENT].lower()) is not None
         or regex3.search(tweet_parts[CONTENT].lower()) is not None):
         return True
     return False
+
+
+def post_contains_commentary3(tweet_parts):
+    regex1 = re.compile(r"\btag\b|elevator|president|obama|example|educate\b|powerful|refreshing to see")
+    regex2 = re.compile(r"sharing your stories|sharing their stories|video|conversation|testimonies")
+    if (regex1.search(tweet_parts[CONTENT].lower()) is not None
+        or regex2.search(tweet_parts[CONTENT].lower()) is not None):
+        return True
+    return False
+
+
+
 
 
 def post_contains_link(tweet_parts):

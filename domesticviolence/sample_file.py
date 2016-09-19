@@ -74,5 +74,10 @@ def samples_done():
     print_sample("WISWIL_filtered_haslinks.txt", "CONTENT")
     print_sample("WISWIL_filtered_nolinks.txt", "CONTENT")
     print_sample("WISWIL_filtered_hascommentary.txt", "CONTENT")
+    print_sample("WISWIL_filtered_nocommentary.txt", "CONTENT")
+    print_sample("WISWIL_filtered_hascommentary2.txt", "CONTENT")
+    print_sample("WISWIL_filtered_nocommentary2.txt", "CONTENT")
 
-print_sample("WISWIL_filtered_nocommentary.txt", "CONTENT")
+print_sample("WISWIL_filtered_hascommentary3.txt", "CONTENT")
+# print_sample("WISWIL_filtered_nocommentary3.txt", "CONTENT")
+
