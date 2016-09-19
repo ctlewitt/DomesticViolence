@@ -79,7 +79,10 @@ def post_contains_commentary3(tweet_parts):
     return False
 
 
-
+def post_contains_at_person_colon(tweet_parts):
+    if re.search(r'(@\w+:)', tweet_parts[CONTENT].lower()) is not None:
+        return True
+    return False
 
 
 def post_contains_link(tweet_parts):

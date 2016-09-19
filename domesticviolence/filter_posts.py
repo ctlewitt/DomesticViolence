@@ -2,7 +2,7 @@ import json
 import re
 from domesticviolence.util import (get_tweet_parts, relevant_tweet, post_contains_commentary, post_contains_commentary2,
                                    post_contains_link, post_is_retweet, post_is_tweet, AUTHOR, CONTENT, MEDIA_PROVIDER,
-                                   post_contains_commentary3)
+                                   post_contains_commentary3, post_contains_at_person_colon)
 
 
 DEBUG = False
@@ -123,17 +123,22 @@ def sequence_of_filters_applied():
                        "domesticviolence/hashtag_tweets/WISWIL_filtered_hascommentary2.txt",
                        "domesticviolence/hashtag_authors/WISWIL_twitter_users_nocommentary2.txt",
                        post_contains_commentary2)
-
-#
-# filter_out_by_func("domesticviolence/hashtag_tweets/WISWIL_filtered_nocommentary2.txt",
-#                    "domesticviolence/hashtag_tweets/WISWIL_filtered_nocommentary3.txt",
-#                    "domesticviolence/hashtag_tweets/WISWIL_filtered_hascommentary3.txt",
-#                    "domesticviolence/hashtag_authors/WISWIL_twitter_users_nocommentary3.txt",
-#                    post_contains_commentary3)
+    filter_out_by_func("domesticviolence/hashtag_tweets/WISWIL_filtered_nocommentary2.txt",
+                       "domesticviolence/hashtag_tweets/WISWIL_filtered_nocommentary3.txt",
+                       "domesticviolence/hashtag_tweets/WISWIL_filtered_hascommentary3.txt",
+                       "domesticviolence/hashtag_authors/WISWIL_twitter_users_nocommentary3.txt",
+                       post_contains_commentary3)
 
 
+filter_out_by_func("domesticviolence/hashtag_tweets/WISWIL_filtered_nocommentary3.txt",
+                   "domesticviolence/hashtag_tweets/WISWIL_filtered_noatpersoncolon.txt",
+                   "domesticviolence/hashtag_tweets/WISWIL_filtered_hasatpersoncolon.txt",
+                   "domesticviolence/hashtag_authors/WISWIL_twitter_users_noatpersoncolon.txt",
+                   post_contains_at_person_colon)
 
-test_filter("domesticviolence/hashtag_tweets/WISWIL_filtered_hascommentary3.txt", "powerful")
+
+
+# test_filter("domesticviolence/hashtag_tweets/WISWIL_filtered_hascommentary3.txt", "powerful")
 
 
 # def unused_conglomerate_filter():
